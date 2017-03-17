@@ -1,0 +1,90 @@
+//fOR more information visit github ssh keys
+
+
+
+
+
+
+
+
+ue@admin-PC MINGW64 /
+$ ls -al ~/.ssh
+ls: cannot access '/c/Users/ue/.ssh': No such file or directory
+
+ue@admin-PC MINGW64 /
+$ ssh-keygen -t rsa -b 4096 -C "kiran.devkar@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/ue/.ssh/id_rsa):
+Created directory '/c/Users/ue/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/ue/.ssh/id_rsa.
+Your public key has been saved in /c/Users/ue/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:dfTiGKQcBmGXETAlFYf7hW9YoqRkW7rfitVrCa/7d50 kiran.devkar@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|      B*X*o .    |
+|     . *o= . .   |
+|        o.o.o .  |
+|      o +.o=o.   |
+|     o *So.*.    |
+|      + o.o o    |
+|       ..o.o   ..|
+|      .o .+.. .E.|
+|      ..=*+. .   |
++----[SHA256]-----+
+
+
+
+
+
+
+ue@admin-PC MINGW64 /
+$ ls -al ~/.ssh
+total 20
+drwxr-xr-x 1 ue 197121    0 Mar 16 17:00 ./
+drwxr-xr-x 1 ue 197121    0 Mar 16 17:00 ../
+-rw-r--r-- 1 ue 197121 3243 Mar 16 17:00 id_rsa
+-rw-r--r-- 1 ue 197121  748 Mar 16 17:00 id_rsa.pub
+
+ue@admin-PC MINGW64 /
+$ eval $(ssh-agent -s)
+Agent pid 2296
+
+ue@admin-PC MINGW64 /
+$ ssh-add ~/.ssh/id_rsa
+Identity added: /c/Users/ue/.ssh/id_rsa (/c/Users/ue/.ssh/id_rsa)
+
+ue@admin-PC MINGW64 /
+$ clip < ~/.ssh/id_rsa.pub
+
+ue@admin-PC MINGW64 /
+$ ssh -T git@github.com
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Hi Kiran303! You've successfully authenticated, but GitHub does not provide shell access.
+
+ue@admin-PC MINGW64 /
+$
+
+
+///////////////////////////////on command line of your project ///////////////////////////
+
+E:\NodeJsExamples\UDEMY Examples\web-severs>git remote add origin https://github.com/Kiran303/nodejs-web-servers.git
+
+E:\NodeJsExamples\UDEMY Examples\web-severs>git push -u origin master
+Username for 'https://github.com': Kiran303
+Password for 'https://Kiran303@github.com':
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 1.96 KiB | 0 bytes/s, done.
+Total 13 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/Kiran303/nodejs-web-servers.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+

@@ -1,6 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const fs = require('fs');
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -16,9 +17,9 @@ app.use((req,res,next) =>{
     next();
 });
 
-app.use((req,res,next) =>{
-    res.render('maintenance.ejs');
-});
+// app.use((req,res,next) =>{
+//     res.render('maintenance.ejs');
+// });
 
 app.set('view engine',ejs);
 
@@ -44,7 +45,7 @@ app.get('/home',(req,res) =>{
         message :'Welcome to Home page',
         currentyear : new Date().getFullYear()
     })
-})
+});
 
 app.get('/about',(req,res)=>{
     res.render('about.ejs',{
@@ -59,7 +60,7 @@ app.get('/bad',(req,res)=>{
     });
 });
 
-app.listen(3000 ,()=>{
-    console.log('Port is starting on 3000');
+app.listen(port ,()=>{
+    console.log(`Port is starting on ${port}`);
 });
 
