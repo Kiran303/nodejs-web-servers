@@ -28,17 +28,14 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req,res)=>{
      //res.send('<h1>HEllo Express..!</h1>');
-     res.send({
-        Name: 'Kiran',
-        likes :[
-            'Biking',
-            'Pulser',
-            'Scooty'
-        ] 
-     });
-});
-
-app.get('/home',(req,res) =>{
+    //  res.send({
+    //     Name: 'Kiran',
+    //     likes :[
+    //         'Biking',
+    //         'Pulser',
+    //         'Scooty'
+    //     ] 
+    //  });
     res.render('home.ejs',{
         name :'Kiran',
         pageTitle : 'Home Page',
@@ -47,9 +44,25 @@ app.get('/home',(req,res) =>{
     })
 });
 
+// app.get('/home',(req,res) =>{
+//     res.render('home.ejs',{
+//         name :'Kiran',
+//         pageTitle : 'Home Page',
+//         message :'Welcome to Home page',
+//         currentyear : new Date().getFullYear()
+//     })
+// });
+
 app.get('/about',(req,res)=>{
     res.render('about.ejs',{
         pageTitle : 'About Page',
+        currentyear : new Date().getFullYear()
+    });
+});
+
+app.get('/projects',(req,res)=>{
+    res.render('projects.ejs',{
+        title : 'Nodejs Application demo',
         currentyear : new Date().getFullYear()
     });
 });
